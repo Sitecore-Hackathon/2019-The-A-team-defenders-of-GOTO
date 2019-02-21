@@ -1,6 +1,6 @@
 ![Hackathon Logo](documentation/images/hackathon.png?raw=true "Hackathon Logo")
 
-# Submission Boilerplate
+# Submission Boilerplate.
 
 Welcome to Sitecore Hackathon 2019.
 

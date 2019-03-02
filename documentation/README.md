@@ -22,6 +22,8 @@ Provide detailed instructions on how to install the module, and include screensh
 ![Rebuild integration points](images/rebuildintegrationpoints.gif?raw=true "Rebuild integration points")
 3. The module is good to go!
 
+> When installing the package the wizard will prompt for an existing item */sitecore/system/Settings/Buckets/Search Types/Text*. We have simply added **Keywords** to the list of fields searched when using the *media selector* .
+
 ## Configuration
 
 In order for the module to work it needs two valid **API keys** for the Watson services. For information on how to create the keys see section below. When the keys are generated the settings in sitecore should be updated. The relevant item can be found here: */sitecore/system/Modules/PowerShell/Settings/GOTO Watson/Settings*.

@@ -1,68 +1,92 @@
 # Documentation
 
-The documentation for this years Hackathon must be provided as a readme in Markdown format as part of your submission. 
-
-You can find a very good reference to Github flavoured markdown reference in [this cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). If you want something a bit more WYSIWYG for editing then could use [StackEdit](https://stackedit.io/app) which provides a more user friendly interface for generating the Markdown code. Those of you who are [VS Code fans](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) can edit/preview directly in that interface too.
-
-Examples of things to include are the following.
+This readme file details how to install and use the **GOTO Watson Powershell Extension Module**.
 
 ## Summary
 
-**Category:** Hackathon Category
+**Category:** Best use of SPE to help Content authors and Marketers
 
-What is the purpose of your module? What problem does it solve and how does it do that?
+The intention behind the module is to help content editors create better content and have a better understanding on how it might be perceived by the customer. This is done by enabling content editors to analyze texts and tag images using IBM's Watson API.
+Text analysis allows for better targeting of a given piece of content. While image tagging helps built a *media library* which is easier to navigate.
 
 ## Pre-requisites
 
-Does your module rely on other Sitecore modules or frameworks?
-
-- List any dependencies
-- Or other modules that must be installed
-- Or services that must be enabled/configured
+The module requires [Sitecore Powershell Extensions](https://marketplace.sitecore.net/en/Modules/Sitecore_PowerShell_console.aspx) 
 
 ## Installation
 
 Provide detailed instructions on how to install the module, and include screenshots where necessary.
 
 1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-2. ???
-3. Profit
+2. Once the package has been installed all integration points in PSE needs to be rebuilt
+![Rebuild integration points](images/rebuildintegrationpoints.gif?raw=true "Rebuild integration points")
+3. The module is good to go!
 
 ## Configuration
 
-How do you configure your module once it is installed? Are there items that need to be updated with settings, or maybe config files need to have keys updated?
+In order for the module to work it needs two valid **API keys** for the Watson services. For information on how to create the keys see section below. When the keys are generated the settings in sitecore should be updated. The relevant item can be found here: */sitecore/system/Modules/PowerShell/Settings/GOTO Watson/Settings*.
+It's a single item which holds all the relevant settings.
 
-Remember you are using Markdown, you can provide code samples too:
+* **Tone Analyzer Service Endpoint** Which server location should be used with **Tone Analyzer Api Key**.
+* **Tone Analyzer Api Key** Api Key for  [Watson Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service. It is important to note that the Api Key might only be valid for certain server locations.
+* **Visual Recognition Service Endpoint** Which server location should be used with **Visual Recognition Api Key**.
+* **Visual Recognition Api Key** Api Key for [Watson Visual Recognition](https://www.ibm.com/watson/services/visual-recognition/) service. It is important to note that the Api Key might only be valid for certain server locations.
 
-```xml
-<?xml version="1.0"?>
-<!--
-  Purpose: Configuration settings for my hackathon module
--->
-<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
-  <sitecore>
-    <settings>
-      <setting name="MyModule.Setting" value="Hackathon" />
-    </settings>
-  </sitecore>
-</configuration>
-```
+Don't worry if you forget to add the settings before you use the module. It will make sure to prompt you for details if it's missing.
+
+### Getting Watson API keys
+
+> The sitecore package includes Api keys for both services, so it should be possible to try out the module without having to create new keys. Otherwise follow the links below.
+
+To create your own api keys to use IBM Watsons **Tone Analyzer** goto [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/). It's free to use this service with a limit of 2,500 API calls a month
+
+To create your own api keys to use IBM Watsons **Visual Recognition** goto [Visual Recognition](https://www.ibm.com/watson/services/visual-recognition/). It's free to use this service with a limit of 1,000 API calls a month.
+
+The guide on the above pages is easy to follow, and it's pretty fast to get the needed API keys - and for the free plan there no requirement to enter credit card information.
 
 ## Usage
 
-Provide documentation  about your module, how do the users use your module, where are things located, what do icons mean, are there any secret shortcuts etc.
+The module provides two integration points for content editors. Both are found through the *Content Editor*'s ribbon menu.
 
-Please include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
+### Tone Analyzer
 
-![Hackathon Logo](images/hackathon.png?raw=true "Hackathon Logo")
+The Tone Analyzer is found through the ribbon in the Content Editor.
 
-You can embed images of different formats too:
+![Tone Analyzer Ribbon](images/ToneAnalyzerRibbon.png?raw=true "Tone Analyzer Ribbon")
 
-![Deal With It](images/deal-with-it.gif?raw=true "Deal With It")
+When opened it lists all text fields for the current item which the *Content Editor* can select from. When a field is selected all html tags are stripped away and the text is sent to Watson Tone Analyzer.
+Watson returns an analysis for the entire text as well as the individual sentences. The result is rendered in three different radar charts:
 
-And you can embed external images too:
+* Emotion Tone
+* Language Tone
+* Social Tone
 
-![Random](https://placeimg.com/480/240/any "Random")
+A selectable list containing the sentences allows for the user to switch between seeing the output for the entire text or each sentence.
+
+### Visual Recognition
+
+When an image is selected in the *Content Editor* a **Visual Recognition** button is shown in the context ribbon.
+
+![Visual Recognition Ribbon](images/VisualRecognitionRibbon.png?raw=true "Visual Recognition Ribbon")
+
+When clicked it streams the image content to Watson Visual Recognition which in return sends a list of keywords along with a score for each.
+The result is displayed in a list view where tag and score are shown. The results are sorted by score, showing the most relevant first. The user can then select the ones they deem relevant and save them on the image item by clicking **Save keywords**.
+
+List view in action
+
+![Visual Recognition List View](images/vr1.png?raw=true "Visual Recognition List View")
+
+Result, the item has new keywords
+
+![Visual Recognition Result](images/vr2.png?raw=true "Visual Recognition Result")
+
+Now it is possible to search for and find a banana related image in both the *Media Libray*
+
+![Media Library Search](images/vr3.png?raw=true "Media Library Search")
+
+As well as in the media selector
+
+![Media Selector](images/vr4.png?raw=true "Media Selector")
 
 ## Video
 

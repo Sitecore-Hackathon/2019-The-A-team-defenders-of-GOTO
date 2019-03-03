@@ -6,19 +6,18 @@ This readme file details how to install and use the **GOTO Watson Powershell Ext
 
 **Category:** Best use of SPE to help Content authors and Marketers
 
-The intention behind the module is to help content editors create better content and have a better understanding on how it might be perceived by the customer. This is done by enabling content editors to analyze texts and tag images using IBM's Watson API.
-Text analysis allows for better targeting of a given piece of content. While image tagging helps built a *media library* which is easier to navigate.
+The intention behind the module is to help content editors create better content and have a better understanding on how it is perceived by the reader. This is done by enabling content editors to analyze texts and tag images using IBM's Watson API.
+Text analysis allows for better targeting of a given piece of content. While image tagging helps maintain an easier navigatable *media library*.
 
 ## Pre-requisites
 
 The module requires [Sitecore Powershell Extensions](https://marketplace.sitecore.net/en/Modules/Sitecore_PowerShell_console.aspx) 
+It is only tested with version 5.0
 
 ## Installation
 
-Provide detailed instructions on how to install the module, and include screenshots where necessary.
-
 1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-2. Once the package has been installed all integration points in PSE needs to be rebuilt
+2. Once the package has been installed all integration points in SPE needs to be rebuilt
 ![Rebuild integration points](images/rebuildintegrationpoints.gif?raw=true "Rebuild integration points")
 3. The module is good to go!
 
@@ -26,21 +25,27 @@ Provide detailed instructions on how to install the module, and include screensh
 
 ### Serialization
 
-Everything is available in the sitecore package. All the code is written as PowerShell in sitecore items. However the sitecore items is also available as [serialized files](#link-to-files).
-They have been serialized using Sitecore PSE and can be deserialized using Sitecore PSE as well.
+Everything is available in the sitecore package. All PowerShell code is contained in sitecore items. However the sitecore items is also available as [serialized files](https://github.com/Sitecore-Hackathon/2019-The-A-team-defenders-of-GOTO/tree/master/src/Feature/GOTO%20Watson/serialized%20items).
+They have been serialized using Sitecore PSE and can be deserialized using Sitecore SPE as well.
+There is also an xml and javascript file included for the Graph Viewer. These are both contained in the package and under [sitecore modules](https://github.com/Sitecore-Hackathon/2019-The-A-team-defenders-of-GOTO/tree/master/src/Feature/GOTO%20Watson/sitecore%20modules/Shell/PowerShell)
+
 
 #### Serialization Code
 
 ```powershell
-
-
+Serialize-Item -path "master:\sitecore\templates\GOTO Watson" -target "C:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items\templates" -recurse
+Serialize-Item -path "master:\sitecore\media library\GOTO Watson" -target "C:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items\media library" -recurse
+Serialize-Item -path "master:\sitecore\system\Modules\PowerShell\Settings\GOTO Watson" -target "C:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items\system\Modules\PowerShell\Settings" -recurse
+Serialize-Item -path "master:\sitecore\system\Modules\PowerShell\Script Library\GOTO Watson" -target "C:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items\system\Modules\PowerShell\Script Library" -recurse
+Serialize-Item -path "master:\sitecore\system\Settings\Buckets\Search Types\Text" -target "C:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items\system\Settings\Buckets\Search Types" -recurse
+Serialize-Item -path "master:\sitecore\content\Home\GOTO Watson examples" -target "C:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items\content\Home" -recurse
 ```
 
 #### Deserialization Code
 
+Check the paths to match your own repository
 ```powershell
-
-
+Deserialize-Item -path "c:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items" -root "c:\git\2019-The-A-team-defenders-of-GOTO\src\Feature\GOTO Watson\serialized items" -recurse
 ```
 
 ## Configuration
@@ -82,7 +87,7 @@ Watson returns an analysis for the entire text as well as the individual sentenc
 * Language Tone
 * Social Tone
 
-A selectable list containing the sentences allows for the user to switch between seeing the output for the entire text or each sentence.
+A selectable list containing the individual sentences allows for the user to switch between seeing the output for the entire text or each sentence.
 
 The demo item
 
@@ -102,7 +107,7 @@ It is possible to see the result for the individual sentences
 
 ### Visual Recognition
 
-When an image is selected in the *Content Editor* a **Visual Recognition** button is shown in the context ribbon.
+When an image is selected in the *Media Library* a **Visual Recognition** button is shown in the context ribbon.
 
 ![Visual Recognition Ribbon](images/VisualRecognitionRibbon.png?raw=true "Visual Recognition Ribbon")
 
@@ -127,6 +132,4 @@ As well as in the media selector
 
 ## Video
 
-Please provide a video highlighing your Hackathon module submission and provide a link to the video. Either a [direct link](https://www.youtube.com/watch?v=EpNhxW4pNKk) to the video, upload it to this documentation folder or maybe upload it to Youtube...
-
-[![Sitecore Hackathon Video Embedding Alt Text](https://img.youtube.com/vi/EpNhxW4pNKk/0.jpg)](https://www.youtube.com/watch?v=EpNhxW4pNKk)
+[![Link to the video](https://youtu.be/esH0gBIHsgo)

@@ -1,0 +1,87 @@
+----item----
+version: 1
+id: {CD8749AA-16EC-4C4C-BBE3-61920828BA5F}
+database: master
+path: /sitecore/system/Modules/PowerShell/Settings/GOTO Watson/Settings
+parent: {1E658368-B7C9-48FE-855B-D7F3B08D273E}
+name: Settings
+master: {00000000-0000-0000-0000-000000000000}
+template: {64291200-9F06-4592-A721-F35DD59A43E7}
+templatekey: Watson Settings
+created: 20190302T013858Z
+
+----field----
+field: {677CF563-229B-4266-908F-01C7A9FC4D77}
+name: Service Endpoint
+key: service endpoint
+content-length: 38
+
+{F5B58D54-74BD-49A2-95D4-4106DECE7C3D}
+----field----
+field: {06386EA1-4FC6-4330-B37A-7DD9F2DA930F}
+name: Api Key
+key: api key
+content-length: 44
+
+cNoZOnn6D5ALqwlONvOJHl6KaGQgXqJY4ZU9RD8KN5tT
+----version----
+language: en
+version: 1
+revision: 94ce8c80-87c3-4ee7-ac17-0da9341a85a4
+
+----field----
+field: {A0ED6F87-2541-499F-83AE-E595CAABBF56}
+name: Visual Recognition Service Endpoint
+key: visual recognition service endpoint
+content-length: 38
+
+{320AABD2-3B69-4C9F-A995-91E8D9E061CB}
+----field----
+field: {AE5A914D-C18E-4018-B513-FCFAC68F703A}
+name: Visual Recognition Api Key
+key: visual recognition api key
+content-length: 44
+
+nNIDo9HZu60ED0qdgT3RxWoQ95KEy4uJzk6gpaiRiMhK
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20190302T013858Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+94ce8c80-87c3-4ee7-ac17-0da9341a85a4
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20190302T212935Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

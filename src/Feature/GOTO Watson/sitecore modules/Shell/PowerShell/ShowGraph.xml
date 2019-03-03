@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense"
+         xmlns:x="http://www.sitecore.net/xaml">
+  <ShowGraph>
+    <FormPage>
+	  <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></Script>
+      <Stylesheet Src="Dialogs.css" DeviceDependant="true" runat="server" />
+	  <Script src="https://cdn.plot.ly/plotly-latest.min.js"></Script>
+      <Script src="/sitecore modules/Shell/PowerShell/ShowGraph.js"></Script>
+
+      <Stylesheet>
+		.menu {
+			width:25%;
+			height:100%;
+			float:left;
+			border-right:1px solid black
+		}
+		.charts {
+			width:75%;
+			height:100;
+			float:right;
+		}
+		h3 {
+		    text-align: center;
+			font-size: 2em;
+		}
+		.canvas-holder {
+			width:50%;
+			float:left;
+		}
+		.menuitems li {
+			border: 1px solid black;
+			border-radius: 3px;
+			padding: 5px;
+			margin: 5px;
+			width: auto;
+			cursor: pointer;
+		}
+		.menuitems li.active {
+			background-color: rgb(31, 119, 180);
+			color: white;
+		}
+      </Stylesheet>
+
+      <Border class="scFlexColumnContainer scStretch">
+        <Border class="scDialogHeader scConfirmChoiceHeader">
+          <ThemedImage Src="powershell/32x32/powershell.png" class="psVarPromptHeaderIcon" Visible="false" />
+          <Border>
+            <Border Class="DialogHeader">
+			  Graph View
+            </Border>
+            <Border Class="DialogHeaderDescription">
+              The analyzed tone view from Watson
+            </Border>
+          </Border>
+        </Border>
+
+        <Scrollbox Class="scFlexContent">
+          <Scrollbox ID="ValuePanel" Class="scStretchAbsolute scDialogContentContainer">
+			<div class="menu" style="">
+			 <ul class="menuitems">
+			 
+			 </ul>
+			</div>
+			<div class="charts">
+
+			</div>
+          </Scrollbox>
+        </Scrollbox>
+      
+      </Border>
+    </FormPage>
+	
+  </ShowGraph>
+</control>

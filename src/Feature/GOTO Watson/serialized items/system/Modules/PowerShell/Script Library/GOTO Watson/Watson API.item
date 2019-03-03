@@ -1,0 +1,66 @@
+----item----
+version: 1
+id: {E27E86FB-8185-41FD-B38C-888DF6B44241}
+database: master
+path: /sitecore/system/Modules/PowerShell/Script Library/GOTO Watson/Watson API
+parent: {C61C0244-A8A5-4245-A017-0239D44C9D16}
+name: Watson API
+master: {00000000-0000-0000-0000-000000000000}
+template: {6D82FCD8-C379-443C-97A9-C6423C71E7D5}
+templatekey: PowerShell Script Module
+created: 20190302T034741Z
+
+----field----
+field: {218CA464-CB77-4C97-B141-34871ECAE00B}
+name: Enabled
+key: enabled
+content-length: 1
+
+1
+----field----
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 32
+
+Office/32x32/jar_coffee_bean.png
+----version----
+language: en
+version: 1
+revision: 5a21e069-301e-4bfa-89ee-1f0b11a0d08f
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20190302T034741Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+5a21e069-301e-4bfa-89ee-1f0b11a0d08f
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20190302T034834Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

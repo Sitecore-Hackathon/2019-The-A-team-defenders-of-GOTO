@@ -1,0 +1,90 @@
+----item----
+version: 1
+id: {19DCEEA2-BDC5-4301-9EB0-2DCE72F32627}
+database: master
+path: /sitecore/system/Modules/PowerShell/Script Library/GOTO Watson/UI/Internal/List View/Ribbon/ImageClassification/Save keywords
+parent: {68FC26CB-93D3-4992-B6DC-BB99C3952B7A}
+name: Save keywords
+master: {00000000-0000-0000-0000-000000000000}
+template: {DD22F1B3-BD87-4DB2-9E7D-F7A496888D43}
+templatekey: PowerShell Script
+created: 20190302T152156Z
+
+----field----
+field: {1C76313E-3C8C-4807-A826-135D10C39299}
+name: ShowRule
+key: showrule
+content-length: 11
+
+<ruleset />
+----field----
+field: {B1A94FF0-6897-47C0-9C51-AA6ACB80B1F0}
+name: Script
+key: script
+content-length: 446
+
+#Concatenate all selected tags to a comma seperated list and save them to the keywords field
+if (-not $selectedData.Length -eq 0) {
+    $selectedImageTags = [string]::Join(", ", $selectedData.ImageClass)
+    $itemId = $selectedData[0].ItemId
+    $item = Get-Item -Path master: -ID $itemId
+    
+    $item.Editing.BeginEdit()
+    $item.Fields["Keywords"].Value = $selectedImageTags
+    $item.Editing.EndEdit()
+}
+Close-Window
+
+
+
+
+
+
+
+----field----
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 23
+
+Office/32x32/submit.png
+----version----
+language: en
+version: 1
+revision: 5551531f-6dec-4101-88ca-d84925561d35
+
+----field----
+field: {9541E67D-CE8C-4225-803D-33F7F29F09EF}
+name: __Short description
+key: __short description
+content-length: 38
+
+Trigger the scheduled task to run now.
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20130916T194700Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+5551531f-6dec-4101-88ca-d84925561d35
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20190302T225415Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

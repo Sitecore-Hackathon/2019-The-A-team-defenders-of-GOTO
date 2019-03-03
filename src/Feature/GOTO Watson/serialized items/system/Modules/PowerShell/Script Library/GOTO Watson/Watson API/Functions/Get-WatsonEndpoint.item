@@ -1,0 +1,81 @@
+----item----
+version: 1
+id: {2E9F1904-B39A-4132-9BB0-B1E0370AA30E}
+database: master
+path: /sitecore/system/Modules/PowerShell/Script Library/GOTO Watson/Watson API/Functions/Get-WatsonEndpoint
+parent: {C7043F35-CF09-4276-9B58-09E64F29E6A6}
+name: Get-WatsonEndpoint
+master: {00000000-0000-0000-0000-000000000000}
+template: {DD22F1B3-BD87-4DB2-9E7D-F7A496888D43}
+templatekey: PowerShell Script
+created: 20190302T014858Z
+
+----field----
+field: {B1A94FF0-6897-47C0-9C51-AA6ACB80B1F0}
+name: Script
+key: script
+content-length: 685
+
+Import-Function -Name Get-WatsonSetting
+<#
+    .SYNOPSIS
+        Gets the chosen Watson Service Endpoint or prompts for one if not set
+    
+    .PARAMETER ServiceName
+        Specifies the Watson Service name e.g. "Tone Analyzer" or "Visual Recognizion" - used as a prefix of the names on the settings item
+    
+    .OUTPUT
+        - System.String or Field Editor
+#>
+function Get-WatsonEndpoint {
+    #($ServiceName)
+    [CmdletBinding()]
+    param(
+        [ValidateNotNullOrEmpty()]
+        [string]$ServiceName
+    )
+
+    $endpointId = Get-WatsonSetting -Field "$ServiceName Service Endpoint"
+    $endpointItem = Get-Item $endpointId
+    $endpointItem['URL']
+}
+----version----
+language: en
+version: 1
+revision: 7675226c-5670-4c22-bf7f-b6e2f1eb4972
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20190302T014858Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+7675226c-5670-4c22-bf7f-b6e2f1eb4972
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20190302T225627Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

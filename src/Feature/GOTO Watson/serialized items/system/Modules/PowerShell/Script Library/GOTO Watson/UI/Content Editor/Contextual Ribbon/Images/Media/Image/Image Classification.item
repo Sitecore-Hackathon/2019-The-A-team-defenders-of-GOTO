@@ -1,0 +1,80 @@
+----item----
+version: 1
+id: {866B56CC-5991-4DC9-9074-D79A724D99AE}
+database: master
+path: /sitecore/system/Modules/PowerShell/Script Library/GOTO Watson/UI/Content Editor/Contextual Ribbon/Images/Media/Image/Image Classification
+parent: {8A587154-5815-48A6-87B4-8F256B98184A}
+name: Image Classification
+master: {00000000-0000-0000-0000-000000000000}
+template: {DD22F1B3-BD87-4DB2-9E7D-F7A496888D43}
+templatekey: PowerShell Script
+created: 20190302T204632Z
+
+----field----
+field: {1C76313E-3C8C-4807-A826-135D10C39299}
+name: ShowRule
+key: showrule
+content-length: 304
+
+<ruleset>
+  <rule uid="{F424DE4C-3B29-41A5-A358-5114BAAD206E}">
+    <conditions>
+      <condition id="{4B889F07-94D4-4371-B522-9FFE8AF0BE12}" uid="04D9CBFE02A440029EE8B8EF3B0086CD" operatorid="{FDD7C6B1-622A-4362-9CFF-DDE9866C68EA}" value="/sitecore/media" />
+    </conditions>
+  </rule>
+</ruleset>
+----field----
+field: {B1A94FF0-6897-47C0-9C51-AA6ACB80B1F0}
+name: Script
+key: script
+content-length: 68
+
+Import-Function -Name Show-VisualRecognition
+Show-VisualRecognition
+----field----
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 21
+
+Office/32x32/tags.png
+----version----
+language: en
+version: 1
+revision: d1433688-224e-4e85-922b-133170707375
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20190302T032205Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+d1433688-224e-4e85-922b-133170707375
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20190302T222441Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

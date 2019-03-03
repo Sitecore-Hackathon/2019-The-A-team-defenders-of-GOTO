@@ -1,0 +1,98 @@
+----item----
+version: 1
+id: {CF8FF73A-8AD1-4D7C-A36E-F5E0E220CFCD}
+database: master
+path: /sitecore/system/Modules/PowerShell/Script Library/GOTO Watson/Watson API/Functions/Invoke-WatsonVisualRecognition
+parent: {C7043F35-CF09-4276-9B58-09E64F29E6A6}
+name: Invoke-WatsonVisualRecognition
+master: {00000000-0000-0000-0000-000000000000}
+template: {DD22F1B3-BD87-4DB2-9E7D-F7A496888D43}
+templatekey: PowerShell Script
+created: 20190302T061318Z
+
+----field----
+field: {B1A94FF0-6897-47C0-9C51-AA6ACB80B1F0}
+name: Script
+key: script
+content-length: 1515
+
+Import-Function -Name Get-WatsonEndpoint
+Import-Function -Name Get-WatsonApiKey
+Import-Function -Name Using-Object
+Import-Function -Name Convert-ToBase64
+<#
+    .SYNOPSIS
+        Analyzes the tone from the given text through IBM's Watson API
+    
+    .PARAMETER ImageStream
+        Specifies the text to analyze
+    
+    .OUTPUT
+        - Array of Document Tones and Scores
+#>
+function Invoke-WatsonVisualRecognition {
+    #($ImageStream)
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory=$true)]
+        [System.IO.FileStream]$ImageStream
+    )
+    
+    $endpoint = "$(Get-WatsonEndpoint -ServiceName "Visual Recognition")"
+    $apikey = Get-WatsonApiKey -ServiceName "Visual Recognition"
+    $auth = Convert-ToBase64 -Text "apikey:$($apikey)"
+
+    #We could not get Watson to accept an Invoke-Webrequest with the image stream in the body. We make a good old .Net request
+    $request = [System.Net.HttpWebRequest]::Create($endpoint)
+    $request.Method = 'POST'
+    $request.Headers.Add([System.Net.HttpRequestHeader]::Authorization, "Basic $($auth)")
+    $stream = $request.GetRequestStream()
+    $ImageStream.CopyTo($stream)
+    $stream.Close()
+    Using-Object ($response = $request.GetResponse()) {
+        Using-Object ($reader = New-Object System.IO.StreamReader($response.GetResponseStream(), [System.Text.Encoding]::ASCII)) {
+            $json = $reader.ReadToEnd()  | ConvertFrom-Json
+            $json.images[0].classifiers[0].classes
+        }
+    }
+}
+----version----
+language: en
+version: 1
+revision: d1609384-1650-4ccc-8c0b-918a08e1eac2
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20190302T025512Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+d1609384-1650-4ccc-8c0b-918a08e1eac2
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20190302T230333Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

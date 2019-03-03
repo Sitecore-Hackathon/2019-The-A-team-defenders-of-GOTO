@@ -132,4 +132,4 @@ As well as in the media selector
 
 ## Video
 
-[![Link to the video](https://youtu.be/esH0gBIHsgo)
+[![Video Demostration](images/yt.png?raw=true)](https://youtu.be/esH0gBIHsgo)

@@ -16,7 +16,7 @@ It is only tested with version 5.0
 
 ## Installation
 
-1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
+1. Use the Sitecore Installation wizard to install the [package](https://github.com/Sitecore-Hackathon/2019-The-A-team-defenders-of-GOTO/blob/master/sc.package/GOTO%20Watson-1.0.zip)
 2. Once the package has been installed all integration points in SPE needs to be rebuilt
 ![Rebuild integration points](images/rebuildintegrationpoints.gif?raw=true "Rebuild integration points")
 3. The module is good to go!

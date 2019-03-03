@@ -22,7 +22,26 @@ Provide detailed instructions on how to install the module, and include screensh
 ![Rebuild integration points](images/rebuildintegrationpoints.gif?raw=true "Rebuild integration points")
 3. The module is good to go!
 
-> When installing the package the wizard will prompt for an existing item */sitecore/system/Settings/Buckets/Search Types/Text*. We have simply added **Keywords** to the list of fields searched when using the *media selector* .
+> When installing the package the wizard will prompt for an existing item */sitecore/system/Settings/Buckets/Search Types/Text*. We have simply added **Keywords** to the list of fields searched when using the *media selector*.
+
+### Serialization
+
+Everything is available in the sitecore package. All the code is written as PowerShell in sitecore items. However the sitecore items is also available as [serialized files](#link-to-files).
+They have been serialized using Sitecore PSE and can be deserialized using Sitecore PSE as well.
+
+#### Serialization Code
+
+```powershell
+
+
+```
+
+#### Deserialization Code
+
+```powershell
+
+
+```
 
 ## Configuration
 
@@ -64,6 +83,22 @@ Watson returns an analysis for the entire text as well as the individual sentenc
 * Social Tone
 
 A selectable list containing the sentences allows for the user to switch between seeing the output for the entire text or each sentence.
+
+The demo item
+
+![Tone Analyzer Demo Item](images/ta1.png?raw=true "Tone Analyzer Demo Item")
+
+Select which field should be analyzed
+
+![Tone Analyzer Field Selector](images/ta2.png?raw=true "Tone Analyzer Field Selector")
+
+The result is displayed in a modal dialog. The *Entire document* is selected initially
+
+![Tone Analyzer Dialog](images/ta3.png?raw=true "Tone Analyzer Dialog")
+
+It is possible to see the result for the individual sentences
+
+![Tone Analyzer Dialog 2](images/ta4.png?raw=true "Tone Analyzer Dialog 2")
 
 ### Visual Recognition
 
